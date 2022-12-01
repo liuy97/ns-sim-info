@@ -1,0 +1,64 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/sim-info",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/sim-info",
+        "tsConfig": "packages/sim-info/tsconfig.json",
+        "packageJson": "packages/sim-info/package.json",
+        "main": "packages/sim-info/index.d.ts",
+        "assets": [
+          "packages/sim-info/*.md",
+          "packages/sim-info/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/sim-info/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts sim-info"],
+        "parallel": false
+      },
+      "outputs": ["dist/packages/sim-info"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages sim-info"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/sim-info/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

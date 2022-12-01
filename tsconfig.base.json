@@ -20,7 +20,8 @@
       }
     ],
     "paths": {
-      "@demo/shared": ["tools/demo/index.ts"]
+      "@demo/shared": ["tools/demo/index.ts"],
+      "@nativescript/sim-info": ["packages/sim-info/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

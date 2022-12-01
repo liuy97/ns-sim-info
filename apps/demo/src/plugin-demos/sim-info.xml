@@ -1,0 +1,9 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="page">
+    <Page.actionBar>
+        <ActionBar title="sim-info" icon="" class="action-bar">
+        </ActionBar>
+    </Page.actionBar>
+    <GridLayout rows="auto *" class="p-20">
+      <Button row="0" text="Test sim-info" tap="{{ load }}" class="btn btn-primary"/>
+    </GridLayout>
+</Page>
