@@ -162,7 +162,41 @@ Apple does not allow the access to the phone number under any circumstance. More
 
 ## Testing phones
 - Mi 9
+- Galaxy S9
+- Galaxy S20
 - iPhone 5s
+- iPhone Xs Max (iOS 16.2) with eSim
+```json
+[{
+  "mnc": "01",
+  "isoCountryCode": "no",
+  "carrierName": "Telenor",
+  "allowsVOIP": true,
+  "mcc": "242"
+  }, {
+  "mnc": "01",
+  "isoCountryCode": "no",
+  "carrierName": "Telenor",
+  "allowsVOIP": true,
+  "mcc": "242"
+  }]
+```
+- deactivate eSim
+```json
+ [{
+  "mnc": "",
+  "isoCountryCode": "",
+  "carrierName": "Telenor",
+  "allowsVOIP": true,
+  "mcc": ""
+  }, {
+  "mnc": "01",
+  "isoCountryCode": "no",
+  "carrierName": "Telenor",
+  "allowsVOIP": true,
+  "mcc": "242"
+  }]
+```
 
 ## Acknowledgements
 [nativescript-sim-info](https://github.com/erodriguezh/nativescript-sim-info)
